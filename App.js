@@ -1,8 +1,9 @@
+import 'react-native-gesture-handler'
 import React, { useState } from 'react';
-import Home from './screens/Home';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
-import Navigator from './routes/albumOfTheWeekStack';
+// import Navigator from './routes/albumOfTheWeekStack';
+import Navigator from './routes/drawer';
 
 const getFonts = () => Font.loadAsync({
   'roboto-regular': require('./assets/fonts/Roboto-Regular.ttf'),
