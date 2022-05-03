@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { globalStyles } from '../styles/global';
+import { globalStyles } from '../../styles/global';
 
-export default function RadioAudtions() {
+export default function AboutUs() {
     return (
         <View style={globalStyles.container}>
-            <Text>Audycje</Text>
+            <Text style={globalStyles.titleText}>O nas</Text>
         </View>
     )
 }

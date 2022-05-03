@@ -13,5 +13,10 @@ export const globalStyles = StyleSheet.create({
     paragraph: {
         marginVertical: 8,
         lineHeight: 20,
-    }
+    },
+    centerContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 });
