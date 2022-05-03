@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../../styles/global';
+import Card from '../../shared/card';
 
 export default function AlbumOfTheWeekOverview({ navigation }) {
     const [subPages, setSubPages] = useState([
         { title: 'AboutUs', titleToShow: 'O nas', key: '1' },
         { title: 'Members', titleToShow: 'Radiowcy', key: '2' },
-        { title: 'RadioAuditions', titleToShow: 'Audycje',  key: '3' },
+        { title: 'RadioAuditions', titleToShow: 'Audycje', key: '3' },
         { title: 'Schedule', titleToShow: 'Ramówka', key: '4' },
     ])
 
@@ -16,7 +17,9 @@ export default function AlbumOfTheWeekOverview({ navigation }) {
                 data={subPages}
                 renderItem={({ item }) => (
                     <TouchableOpacity onPress={() => navigation.navigate(item.title, item)}>
-                        <Text style={globalStyles.titleText}>{item.titleToShow}</Text>
+                        <Card>
+                            <Text style={globalStyles.titleText}>{item.titleToShow}</Text>
+                        </Card>
                     </TouchableOpacity>
                 )}
             />
