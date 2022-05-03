@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { Audio } from 'expo-av';
 
@@ -44,15 +44,15 @@ export default function PlayScreen() {
 
     return (
         <View style={globalStyles.centerContainer}>
-
+            <View style={styles.imageContainer}>
+                <Image style={styles.image} source={require('../assets/img/ra-logo-with-name.png')} />
+            </View>
             <TouchableOpacity
                 onPress={() => setRadioPlays(!radioPlays)}
-                style={styles.roundButton2}>
+                style={styles.roundButton}>
                 <Text>{playButtonTitle}</Text>
             </TouchableOpacity>
 
-            {/* <Text>Play Screen</Text>
-            <Button title={playButtonTitle} onPress={() => setRadioPlays(!radioPlays)} /> */}
         </View>
     )
 }
@@ -63,25 +63,32 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    roundButton1: {
-        width: 100,
-        height: 100,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 10,
-        borderRadius: 100,
-        backgroundColor: 'orange',
-    },
-    roundButton2: {
-        marginTop: 20,
+    roundButton: {
         width: 150,
         height: 150,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
         borderRadius: 100,
-        backgroundColor: '#ccc',
+        backgroundColor: '#6aba9c',
+        borderColor: '#50af8c',
+        // shadowOffset: { width: 5, height: 5},
+        shadowColor: '#fff',
+        elevation: 5,
+        shadowOpacity: 0.4,
+        shadowRadius: 10,
     },
+    imageContainer: {
+        width: 200,
+        height: 220,
+        marginHorizontal: 30,
+    },
+    image: {
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        resizeMode: 'contain'
+    }
+    
 });
 
 
