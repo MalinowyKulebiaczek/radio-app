@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import AlbumOfTheWeekStack from './albumOfTheWeekStack';
 import PlayScreenStack from './playScreenStack';
 import InfoStack from './infoStack';
+import RecordingStack from './recordingStack';
 import { COLORS } from '../styles/colors';
 
 const Drawer = createDrawerNavigator();
@@ -24,6 +25,8 @@ export default function AppNavigator() {
                         backgroundColor: COLORS.raDarker
                     }}>
         <Drawer.Screen name="Home" component={PlayScreenStack} options={{ title: 'Player' }} />
+        <Drawer.Screen name="RecordingStack" component={RecordingStack} 
+            options={{ title: 'Nagrania' }} />
         <Drawer.Screen name="AlbumOfTheWeekStack" component={AlbumOfTheWeekStack} 
             options={{ title: 'Płyta tygodnia' }} />
         <Drawer.Screen name="Info" component={InfoStack} options={{ title: 'Informacje' }} />
