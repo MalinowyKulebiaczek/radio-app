@@ -1,8 +1,5 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AlbumOfTheWeekOverview from "../screens/AlbumOfTheWeekOverview";
-import AlbumOfTheWeekDetails from "../screens/AlbumOfTheWeekDetails";
 import AboutUs from '../screens/info/AboutUs';
 import Members from '../screens/info/Members';
 import InfoOverview from '../screens/info/InfoOverview'

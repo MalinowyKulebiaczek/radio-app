@@ -14,7 +14,7 @@ export default function PlayScreen() {
             if (!radioPlays) {
                 setPlayButtonTitle(" ");
                 const { sound } = await Audio.Sound.createAsync(
-                    { uri: 'https://live.hunter.fm/80s_high' },
+                    { uri: 'https://listen.radioaktywne.pl:8443/raogg' },
                     { shouldPlay: true, staysActiveInBackground: true }
                 );
                 setSound(sound);
@@ -32,15 +32,6 @@ export default function PlayScreen() {
             }
         })()
     }, [radioPlays])
-
-    // React.useEffect(() => {
-    //     return sound
-    //         ? () => {
-    //             console.log('Unloading Sound');
-    //             sound.unloadAsync();
-    //         }
-    //         : undefined;
-    // }, [sound]);
 
     return (
         <View style={globalStyles.centerContainer}>
