@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-
+import { COLORS } from '../styles/colors';
 export const globalStyles = StyleSheet.create({
     container: {
         flex: 1,
@@ -8,7 +8,12 @@ export const globalStyles = StyleSheet.create({
     titleText: {
         fontFamily: 'roboto-bold',
         fontSize: 18,
-        color: '#333'
+        color: COLORS.raDarker
+    },
+    titleTextLight: {
+        fontFamily: 'roboto-bold',
+        fontSize: 18,
+        color: COLORS.lightWhite
     },
     paragraph: {
         marginVertical: 8,
@@ -19,6 +24,6 @@ export const globalStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#3b3b4c',
+        backgroundColor: COLORS.raDark,
     },
 });
