@@ -20,10 +20,15 @@ export const globalStyles = StyleSheet.create({
         lineHeight: 20,
         textAlign: 'justify'
     },
-    centerContainer: {
+    centerContainerDark: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: COLORS.raDark,
+    },
+    centerContainerLight: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });

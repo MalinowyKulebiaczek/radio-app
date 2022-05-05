@@ -29,7 +29,10 @@ export default function Navigator() {
                 <albumOfTheWeekStack.Screen
                     name='AlbumOfTheWeekDetails'
                     component={AlbumOfTheWeekDetails}
-                    options={{ title: 'Płyta tygodnia - szczegóły' }}
+                    options={{
+                        title: 'Płyta tygodnia - szczegóły',
+                        headerShown: false,
+                    }}
                 />
             </albumOfTheWeekStack.Group>
         </albumOfTheWeekStack.Navigator>

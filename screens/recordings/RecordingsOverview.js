@@ -25,7 +25,7 @@ export default function RecordingsOverview({ navigation }) {
                 renderItem={({ item }) => (
                     <TouchableOpacity onPress={() => navigation.navigate('RecordingDetails', item)}>
                         <Card>
-                            <Text style={globalStyles.titleText}>{item.title}</Text>
+                            <Text style={globalStyles.paragraph}>{item.title}</Text>
                         </Card>
                     </TouchableOpacity>
                 )}

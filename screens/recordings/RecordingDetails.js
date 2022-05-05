@@ -42,7 +42,7 @@ export default function RecordingDetails({ route }) {
     }, [radioPlays])
 
     return (
-        <View style={globalStyles.centerContainer}>
+        <View style={globalStyles.centerContainerDark}>
             <View style={styles.imageContainer}>
                 <Image style={styles.image} source={require('../../assets/img/ra-logo-with-name.png')} />
             </View>
