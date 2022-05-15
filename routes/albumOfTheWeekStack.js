@@ -2,10 +2,16 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AlbumOfTheWeekOverview from "../screens/AlbumOfTheWeekOverview";
 import AlbumOfTheWeekDetails from "../screens/AlbumOfTheWeekDetails";
+import { COLORS } from '../styles/colors';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const albumOfTheWeekStack = createNativeStackNavigator();
 
-export default function Navigator() {
+export default function Navigator({navigation}) {
+    const openMenu = () => {
+        navigation.openDrawer();
+      }
+
     return (
         <albumOfTheWeekStack.Navigator initialRouteName='AlbumOfTheWeekOverview'>
             <albumOfTheWeekStack.Group
@@ -23,15 +29,20 @@ export default function Navigator() {
                     component={AlbumOfTheWeekOverview}
                     options={{
                         title: 'Płyta tygodnia',
-                        headerShown: false,
-                    }}
+                        headerLeft: () => (
+                        <MaterialIcons name="menu" size={28} color={COLORS.lightWhite} onPress={openMenu} />
+                        ),
+                        headerTitleAlign: 'center',
+                        headerStyle: { backgroundColor: COLORS.raDarker },
+                        headerTintColor: COLORS.lightWhite,
+                        backgroundColor: COLORS.raDarker,
+                     }}
                 />
                 <albumOfTheWeekStack.Screen
                     name='AlbumOfTheWeekDetails'
                     component={AlbumOfTheWeekDetails}
                     options={{
-                        title: 'Płyta tygodnia - szczegóły',
-                        headerShown: false,
+                        title: 'Płyta tygodnia'
                     }}
                 />
             </albumOfTheWeekStack.Group>
