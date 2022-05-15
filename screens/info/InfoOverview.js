@@ -3,7 +3,7 @@ import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../../styles/global';
 import Card from '../../shared/card';
 
-export default function AlbumOfTheWeekOverview({ navigation }) {
+export default function InfoOverview({ navigation }) {
     const [subPages, setSubPages] = useState([
         { title: 'AboutUs', titleToShow: 'O nas', key: '1' },
         { title: 'Members', titleToShow: 'Radiowcy', key: '2' },
