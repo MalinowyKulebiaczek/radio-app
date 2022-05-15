@@ -15,7 +15,7 @@ export default function PlayScreen() {
                 setPlayButtonTitle(" ");
                 const { sound } = await Audio.Sound.createAsync(
                     { uri: 'https://live.hunter.fm/80s_high' },
-                    { shouldPlay: true, staysActiveInBackground: true }
+                    { shouldPlay: true, staysActiveInBackground: true } 
                 );
                 setSound(sound);
                 setPlayButtonTitle("STOP");
@@ -45,15 +45,25 @@ export default function PlayScreen() {
     return (
         <View style={globalStyles.centerContainer}>
             <View style={styles.imageContainer}>
+            <TouchableOpacity
+                style={styles.squareButton}>
                 <Image style={styles.image} source={require('../assets/img/ra-logo-with-name.png')} />
+            </TouchableOpacity>
+                
+            </View>
+            <View>
+                <Text style={styles.titleText}>  Teraz gramy:</Text>
+                <Text style={styles.regularText}>Zespół - Tytuł utworu</Text>
+                <Text style={styles.paddingText}>  </Text>
             </View>
             <TouchableOpacity
                 onPress={() => setRadioPlays(!radioPlays)}
                 style={styles.roundButton}>
-                <Text>{playButtonTitle}</Text>
+                <Text style={styles.titleText} >{playButtonTitle}</Text>
             </TouchableOpacity>
-
+            
         </View>
+         
     )
 }
 
@@ -64,22 +74,40 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     roundButton: {
-        width: 150,
-        height: 150,
+        width: 100,
+        height: 100,
         justifyContent: 'center',
         alignItems: 'center',
+      //  flexDirection: 'row', //dodane
         borderRadius: 100,
         backgroundColor: '#6aba9c',
         borderColor: '#50af8c',
         // shadowOffset: { width: 5, height: 5},
-        shadowColor: '#fff',
+        shadowColor: '#000', //#fff
         elevation: 5,
         shadowOpacity: 0.4,
         shadowRadius: 10,
     },
+
+    squareButton: {
+            width: 250,
+            height: 250,
+            justifyContent: 'center',
+            alignItems: 'center',
+            //borderRadius: 100,
+            backgroundColor: '#3b3b4c',
+            borderColor: '#3b3b4c',
+            // shadowOffset: { width: 5, height: 5},
+            shadowColor: '#000', //#fff
+            elevation: 5,
+            shadowOpacity: 0.4,
+            shadowRadius: 10,
+            padding: 20
+    },
+    
     imageContainer: {
-        width: 200,
-        height: 220,
+        width: 250,
+        height: 250,
         marginHorizontal: 30,
     },
     image: {
@@ -87,6 +115,28 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         resizeMode: 'contain'
+    },
+    
+    titleText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#2c2c3a', 
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10 
+    },
+
+    regularText: {
+        fontSize: 16,
+        //fontWeight: 'bold,
+        color: '#2c2c3a', 
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 5
+    },
+
+    paddingText: {
+        padding: 20,
     }
     
 });

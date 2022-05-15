@@ -1,6 +1,11 @@
-import React from 'react';
+//import React from 'react';
 import { Text, View } from 'react-native';
 import { globalStyles } from '../../styles/global';
+import React, { Component } from 'react';
+import { Image } from 'react-native';
+
+
+//export default ImagesExample
 
 export default function AboutUs() {
     return (
@@ -10,3 +15,5 @@ export default function AboutUs() {
         </View>
     )
 }
+
+

@@ -35,17 +35,18 @@ export default function AppNavigator() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
-          
+        
       <Drawer.Group screenOptions={{
-                        headerStyle: { backgroundColor: '#2c2c3a' },
+                        headerStyle: { backgroundColor: '#2c2c3a'},
                         // headerTitleStyle: {
                         //     fontFamily: 'roboto-bold',
                         //   },
                         headerTintColor: '#eee',
                         height: 80,
-                        HeaderTitle: 'asdas',
+                        //HeaderTitle: 'asdas',
                         headerTitleAlign: 'center',
-                        backgroundColor: '#2c2c3a'
+                        backgroundColor: 'black',//'#2c2c3a',
+                        flex: 1,
                     }}>
         <Drawer.Screen name="Home" component={PlayScreenStack} options={{ title: 'Radio aktywne' }} />
         <Drawer.Screen name="AlbumOfTheWeekStack" component={AlbumOfTheWeekStack} options={{ title: 'Płyta tygodnia' }} />

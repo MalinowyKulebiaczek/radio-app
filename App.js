@@ -10,7 +10,6 @@ const getFonts = () => Font.loadAsync({
   'roboto-bold': require('./assets/fonts/Roboto-Bold.ttf')
 });
 
-
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
