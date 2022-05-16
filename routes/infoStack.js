@@ -8,6 +8,7 @@ import RadioAudtions from '../screens/info/auditions/RadioAuditions';
 import RadioAudtionDetails from '../screens/info/auditions/RadioAuditionDetails';
 import { MaterialIcons } from '@expo/vector-icons';
 import { COLORS } from '../styles/colors';
+import { HeaderBackButton } from 'react-navigation-stack';
 
 const infoStack = createNativeStackNavigator();
 
@@ -18,8 +19,14 @@ export default function Navigator({ navigation }) {
 
     return (
 
-        <infoStack.Navigator initialRouteName='infoOverview'>
-            
+        <infoStack.Navigator initialRouteName='infoOverview'
+            screenOptions={{
+                headerStyle: { backgroundColor: COLORS.raDarker },
+                headerTitleStyle: { color: "#fff" },
+                headerTintColor: COLORS.lightWhite,
+                backgroundColor: COLORS.raDarker,
+            }}
+        >
                 <infoStack.Screen
                     name='infoOverview'
                     component={InfoOverview}
@@ -39,23 +46,43 @@ export default function Navigator({ navigation }) {
                 <infoStack.Screen
                     name='AboutUs'
                     component={AboutUs}
-                    headerShown='false'
+                    headerShown='true'
                     headerMode='screen'
-                    options={{
+                    options={{  
                         title: 'O nas',
+                        // headerLeft: () => (
+                        // <HeaderBackButton onPress={()=>{navigation.navigate('infoOverview')}} labelVisible={false} tintColor={'#fff'}/>
+                        // ),
+                        // headerTitleStyle: { color: "#fff" },
+                        // headerStyle: { backgroundColor: COLORS.raDarker, headerTintColor: COLORS.lightWhite},
+                        
                     }}
                 />
                 <infoStack.Screen
                     name='Members'
                     component={Members}
+                    headerShown='true'
+                    headerMode='screen'
                     options={{
-                        title: 'Radiowcy'
+                        title: 'Radiowcy',
+                        // headerLeft: () => (
+                        //     <HeaderBackButton onPress={()=>{navigation.navigate('infoOverview')}} labelVisible={false} tintColor={'#fff'}/>
+                        //     ),
+                        // headerTitleStyle: { color: "#fff" },
+                        // headerStyle: { backgroundColor: COLORS.raDarker, headerTintColor: COLORS.lightWhite},
                     }}
                 />
                 <infoStack.Screen
                     name='RadioAuditions'
                     component={RadioAudtions}
-                    options={{ title: 'Audycje' }}
+                    options={{ 
+                        title: 'Audycje',
+                        // headerLeft: () => (
+                        //     <HeaderBackButton onPress={()=>{navigation.navigate('infoOverview')}} labelVisible={false} tintColor={'#fff'}/>
+                        //     ),
+                        // headerTitleStyle: { color: "#fff" },
+                        // headerStyle: { backgroundColor: COLORS.raDarker, headerTintColor: COLORS.lightWhite},
+                    }}
                 />
                 <infoStack.Screen
                     name='RadioAuditionDetails'
@@ -65,7 +92,15 @@ export default function Navigator({ navigation }) {
                 <infoStack.Screen
                     name='Schedule'
                     component={Schedule}
-                    options={{ title: 'Ramówka' }}
+                    options={{ 
+                        title: 'Ramówka',
+                        title: 'Audycje',
+                        // headerLeft: () => (
+                        //     <HeaderBackButton onPress={()=>{navigation.navigate('infoOverview')}} labelVisible={false} tintColor={'#fff'}/>
+                        //     ),
+                        // headerTitleStyle: { color: "#fff" },
+                        // headerStyle: { backgroundColor: COLORS.raDarker, headerTintColor: COLORS.lightWhite},
+                     }}
                 />
            
         </infoStack.Navigator>

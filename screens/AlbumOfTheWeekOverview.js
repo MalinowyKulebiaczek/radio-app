@@ -33,6 +33,7 @@ export default function AlbumOfTheWeekOverview({ navigation }) {
                             <Text style={globalStyles.titleText}>{item.title}</Text>
                         </Card> */}
                         <CardWithImg
+                            style ={globalStyles.container} 
                             title={item.title}
                             image={item.urlImg}
                             timeline={"23.04.2022 - 30.04.2022"}
