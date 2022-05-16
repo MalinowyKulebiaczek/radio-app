@@ -3,10 +3,19 @@ import { Text, View, StyleSheet, TouchableOpacity, Image, ActivityIndicator } fr
 import { globalStyles } from '../styles/global';
 import { Audio } from 'expo-av';
 import { COLORS } from '../styles/colors';
+import { MaterialIcons } from '@expo/vector-icons';
+import BackgroundTimer from 'react-native-background-timer';
+
+const startButton = () => {
+    return <MaterialIcons name="play-arrow" size={40} color={COLORS.lightWhite}/>;
+  };
+  const stopButton = () => {
+    return <MaterialIcons name="stop" size={40} color={COLORS.lightWhite}/>;
+  };
 
 export default function PlayScreen() {
     const [radioPlays, setRadioPlays] = useState(true);
-    const [playButtonTitle, setPlayButtonTitle] = useState('PLAY');
+    const [playButtonTitle, setPlayButtonTitle] = useState(startButton);
     const [sound, setSound] = React.useState();
 
     const [isLoadingStream, setIsLoadingStream] = useState(false);
@@ -14,7 +23,7 @@ export default function PlayScreen() {
     const streamURL = 'https://listen.radioaktywne.pl:8443/raogg';
     const metaDataURL = 'https://listen.radioaktywne.pl:8443/status-json.xsl';
     const [metaData, setMetaData] = useState({});
-
+   
     useEffect(() => {
         (async () => {
             console.log('status', radioPlays)
@@ -33,7 +42,7 @@ export default function PlayScreen() {
                 // setting sound
                 setSound(sound);
                 setIsLoadingStream(false);
-                setPlayButtonTitle("STOP");
+                setPlayButtonTitle(stopButton);
 
                 try {
                     await sound.playAsync()
@@ -43,7 +52,7 @@ export default function PlayScreen() {
             } else {
                 await sound.stopAsync()
                 await sound.unloadAsync()
-                setPlayButtonTitle("PLAY");
+                setPlayButtonTitle(startButton);
             }
         })()
     }, [radioPlays])
@@ -55,11 +64,11 @@ export default function PlayScreen() {
                 style={styles.squareButton}>
                 <Image style={styles.image} source={require('../assets/img/ra-logo-with-name.png')} />
             </TouchableOpacity>
-                
             </View>
             <View>
-                <Text style={styles.titleText}>  Teraz gramy:</Text>
-                <Text style={styles.regularText}>Zespół - Tytuł utworu</Text>
+                <Text style={styles.paddingText}>  </Text>
+                {/* <Text style={styles.titleText}>Teraz gramy:</Text> */}
+                <Text style={styles.regularText}>{metaData.title}</Text>
                 <Text style={styles.paddingText}>  </Text>
             </View>
             {isLoadingStream ? <ActivityIndicator size="large" color={COLORS.raGreen} /> : <TouchableOpacity
@@ -68,9 +77,9 @@ export default function PlayScreen() {
                 <Text style={styles.titleText} >{playButtonTitle}</Text>
             </TouchableOpacity>
             }
-            <View style={styles.titleContainer}>
-                <Text style={globalStyles.titleTextLight}>{metaData.title}</Text>
-            </View>            
+            {/* <View style={styles.titleContainer}>
+                
+            </View>             */}
         </View>
          
     )
@@ -96,6 +105,7 @@ const styles = StyleSheet.create({
         elevation: 5,
         shadowOpacity: 0.4,
         shadowRadius: 10,
+        marginTop: 50
     },
 
     squareButton: {
@@ -129,23 +139,24 @@ const styles = StyleSheet.create({
     titleText: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#2c2c3a', 
+        //fontFamily: 'roboto-bold',
+        color: '#fff',//'#2c2c3a', 
         justifyContent: 'center',
-        alignItems: 'center',
-        padding: 10 
+        alignItems: 'stretch',
+        padding: 15 
     },
 
     regularText: {
         fontSize: 16,
-        //fontWeight: 'bold,
-        color: '#2c2c3a', 
+        color: '#fff', //'#2c2c3a', 
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'stretch',
+        marginBottom: 10,
         padding: 5
     },
 
     paddingText: {
-        padding: 20,
+        padding: 10,
     },
     titleContainer: {
         padding: 30

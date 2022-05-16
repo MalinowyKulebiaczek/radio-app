@@ -2,7 +2,6 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RecordingDetails from "../screens/recordings/RecordingDetails";
 import RecordingsOverview from "../screens/recordings/RecordingsOverview";
-
 import { COLORS } from '../styles/colors';
 import { MaterialIcons } from '@expo/vector-icons';
 
@@ -36,11 +35,13 @@ export default function Navigator({navigation}) {
                     component={RecordingDetails}
                     options={{
                         title: 'Nagrania',
+                        headerTitleAlign: 'center',
                         headerStyle: { backgroundColor: COLORS.raDarker },
                         headerTintColor: COLORS.lightWhite,
                         backgroundColor: COLORS.raDarker,
                     }}
                 />
+               
             </recordingsStack.Group>
         </recordingsStack.Navigator>
     );
