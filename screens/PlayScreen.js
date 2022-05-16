@@ -77,9 +77,6 @@ export default function PlayScreen() {
                 <Text style={styles.titleText} >{playButtonTitle}</Text>
             </TouchableOpacity>
             }
-            {/* <View style={styles.titleContainer}>
-                
-            </View>             */}
         </View>
          
     )
