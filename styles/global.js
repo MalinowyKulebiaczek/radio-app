@@ -24,11 +24,15 @@ export const globalStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: COLORS.raDark,
+        backgroundColor: COLORS.raDarker, //zmiana
     },
     centerContainerLight: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#eee'//'#3b3b4c',
+    },
+    paddingText: {
+        padding: 5,
     },
 });
