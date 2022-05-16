@@ -28,6 +28,13 @@ export default function RecordingDetails({ route }) {
                 setIsLoadingStream(false);
                 setPlayButtonTitle("STOP");
 
+                sound.getStatusAsync()
+                    .then(function (result) {
+                        console.log(result.durationMillis)
+                        console.log(result.positionMillis)
+                    })
+                    .catch(failureCallback);
+
                 try {
                     await sound.playAsync()
                 } catch (e) {
@@ -54,7 +61,7 @@ export default function RecordingDetails({ route }) {
             }
             <View style={styles.titleContainer}>
                 <Text style={globalStyles.titleTextLight}>{recording.title}</Text>
-            </View>            
+            </View>
         </View>
     )
 }

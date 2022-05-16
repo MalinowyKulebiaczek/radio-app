@@ -18,8 +18,13 @@ export default function Navigator({ navigation }) {
 
     return (
 
-        <infoStack.Navigator initialRouteName='infoOverview'>
-            
+        <infoStack.Navigator initialRouteName='infoOverview'
+            screenOptions={{
+                        headerStyle: { backgroundColor: COLORS.raDarker },
+                        headerTintColor: COLORS.lightWhite,
+                        backgroundColor: COLORS.raDarker,
+                    }}
+            >
                 <infoStack.Screen
                     name='infoOverview'
                     component={InfoOverview}
