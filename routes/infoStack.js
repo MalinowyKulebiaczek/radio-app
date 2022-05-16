@@ -4,7 +4,8 @@ import AboutUs from '../screens/info/AboutUs';
 import Members from '../screens/info/Members';
 import InfoOverview from '../screens/info/InfoOverview'
 import Schedule from '../screens/info/Schedule';
-import RadioAudtions from '../screens/info/RadioAuditions';
+import RadioAudtions from '../screens/info/auditions/RadioAuditions';
+import RadioAudtionDetails from '../screens/info/auditions/RadioAuditionDetails';
 import { MaterialIcons } from '@expo/vector-icons';
 import { COLORS } from '../styles/colors';
 import { HeaderBackButton } from 'react-navigation-stack';
@@ -82,6 +83,11 @@ export default function Navigator({ navigation }) {
                         // headerTitleStyle: { color: "#fff" },
                         // headerStyle: { backgroundColor: COLORS.raDarker, headerTintColor: COLORS.lightWhite},
                     }}
+                />
+                <infoStack.Screen
+                    name='RadioAuditionDetails'
+                    component={RadioAudtionDetails}
+                    options={{ title: 'Audycje' }}
                 />
                 <infoStack.Screen
                     name='Schedule'
