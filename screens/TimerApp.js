@@ -37,12 +37,8 @@ export default function TimerApp({ }) {
             });
             }, 
             1000);
-            //rest of code will be performing for iOS on background too
-            
-            //BackgroundTimer.stopBackgroundTimer(); 
         }
     
-
     const clockify = ()=> {
         let minutes = Math.floor(secondsLeft/60);
         let seconds = Math.floor(secondsLeft%60);
@@ -80,5 +76,5 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         //justifyContent: 'center',
         fontSize: 30,
-    }
+    },
 })
