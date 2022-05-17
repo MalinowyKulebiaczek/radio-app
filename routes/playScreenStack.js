@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PlayScreen from '../screens/PlayScreen';
 import { COLORS } from '../styles/colors';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
-import TimerApp from '../screens/TimerApp';
+import Ticker from '../screens/Ticker';
 
 const playScreenStack = createNativeStackNavigator();
 
@@ -28,7 +28,7 @@ export default function Navigator({ navigation }) {
                             <MaterialIcons name="menu" size={28} color={COLORS.lightWhite} onPress={openMenu} />
                             ),
                             headerRight: () => (
-                                <Ionicons name="md-timer-outline" size={28} color={COLORS.lightWhite} onPress={()=>navigation.navigate('TimerApp')} />
+                                <Ionicons name="md-timer-outline" size={28} color={COLORS.lightWhite} onPress={()=>{navigation.navigate('Ticker')}}/>
                             ),
                             headerTitleAlign: 'center',
                             headerStyle: { backgroundColor: COLORS.raDarker },
@@ -37,14 +37,11 @@ export default function Navigator({ navigation }) {
                             headerTitleAlign: 'center',
                          }}
                     />
-                    <playScreenStack.Screen
-                        name='TimerApp'
-                        component={TimerApp}
+                     <playScreenStack.Screen
+                        name='Ticker'
+                        component={Ticker}
                         options={{
                             title: 'Timer',
-                            headerLeft: () => (
-                            <MaterialIcons name="menu" size={28} color={COLORS.lightWhite} onPress={openMenu} />
-                            ),
                             headerTitleAlign: 'center',
                             headerStyle: { backgroundColor: COLORS.raDarker },
                             headerTintColor: COLORS.lightWhite,
@@ -52,6 +49,7 @@ export default function Navigator({ navigation }) {
                             headerTitleAlign: 'center',
                          }}
                     />
+                    
                 </playScreenStack.Group>
             </playScreenStack.Navigator>
        

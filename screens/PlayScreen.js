@@ -4,7 +4,7 @@ import { globalStyles } from '../styles/global';
 import { Audio } from 'expo-av';
 import { COLORS } from '../styles/colors';
 import { MaterialIcons } from '@expo/vector-icons';
-import BackgroundTimer from 'react-native-background-timer';
+
 
 const startButton = () => {
     return <MaterialIcons name="play-arrow" size={40} color={COLORS.lightWhite}/>;

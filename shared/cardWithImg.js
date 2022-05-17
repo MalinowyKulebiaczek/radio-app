@@ -9,7 +9,7 @@ export default function Card({ title, author, image, timeline}) {
                 <View style={{ flexDirection: "row" }}>
                     <View style={styles.cardImage}>
                         <Image
-                            style = {{width: "100%", height: "100%"}}
+                            style = {{width: "100%", height: "100%",}}
                             source={{uri:image}}
                         />
                     </View>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         paddingVertical: 10,
         paddingHorizontal: 15,
-        width: width,
+        width: width-40,
         borderRadius: 5,
 
         height: height / 8,
@@ -64,5 +64,9 @@ const styles = StyleSheet.create({
 
     cardImage: {
         flex: 0.3,
+        height: 85,
+        width: 30,
+  
     },
+
 });

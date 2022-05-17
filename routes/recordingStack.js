@@ -15,7 +15,11 @@ export default function Navigator({navigation}) {
       }
     return (
         <recordingsStack.Navigator initialRouteName='RecordingsOverview'>
-            <recordingsStack.Group>
+            <recordingsStack.Group
+            screenOptions={{
+                        
+                    }}>
+                        
                 <recordingsStack.Screen
                     name='RecordingsOverview'
                     component={RecordingsOverview}
@@ -28,6 +32,7 @@ export default function Navigator({navigation}) {
                         headerStyle: { backgroundColor: COLORS.raDarker },
                         headerTintColor: COLORS.lightWhite,
                         backgroundColor: COLORS.raDarker,
+                        
                      }}
                 />
                 <recordingsStack.Screen

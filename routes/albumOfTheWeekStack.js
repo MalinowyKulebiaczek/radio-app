@@ -23,6 +23,13 @@ export default function Navigator({navigation}) {
             //         fontWeight: 'roboto-bold',
             //     },
             // }}
+            screenOptions={{
+                headerStyle: { backgroundColor: COLORS.raDarker },
+                headerTitleStyle: { color: "#fff" },
+                headerTitleAlign: 'center',
+                headerTintColor: COLORS.lightWhite,
+                backgroundColor: COLORS.raDarker,
+            }}
             >
                 <albumOfTheWeekStack.Screen
                     name='AlbumOfTheWeekOverview'

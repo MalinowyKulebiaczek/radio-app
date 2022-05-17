@@ -23,6 +23,7 @@ export default function Navigator({ navigation }) {
             screenOptions={{
                 headerStyle: { backgroundColor: COLORS.raDarker },
                 headerTitleStyle: { color: "#fff" },
+                headerTitleAlign: 'center',
                 headerTintColor: COLORS.lightWhite,
                 backgroundColor: COLORS.raDarker,
             }}
