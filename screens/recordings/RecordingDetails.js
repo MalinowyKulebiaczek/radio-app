@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image, ActivityIndicator, Alert} from 'react-native';
 import { globalStyles } from '../../styles/global';
 import { Audio } from 'expo-av';
 import { COLORS } from '../../styles/colors';
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
-
+import { Ionicons } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import {Slider} from '@miblanchard/react-native-slider';
 
 const startButton = () => {
     return <MaterialIcons name="play-arrow" size={40} color={COLORS.lightWhite}/>;
@@ -12,15 +14,18 @@ const startButton = () => {
   const stopButton = () => {
     return <MaterialIcons name="stop" size={40} color={COLORS.lightWhite}/>;
   };
+  
 
-
-export default function RecordingDetails({ route }) {
+export default function RecordingDetails({route }) {
     const recording = route.params;
     const [radioPlays, setRadioPlays] = useState(true);
     const [playButtonTitle, setPlayButtonTitle] = useState(startButton);
     const [sound, setSound] = React.useState();
 
     const [isLoadingStream, setIsLoadingStream] = useState(false);
+    const openAlert = () => {
+        Alert.alert('Opis', recording.info , [{text: 'OK'}]);
+      }
 
     useEffect(() => {
         (async () => {
@@ -66,10 +71,11 @@ export default function RecordingDetails({ route }) {
             </TouchableOpacity>
             </View>
             <View style={styles.titleContainer}>
-                <Text> </Text>
                 <Text style={globalStyles.titleText}>{recording.title}</Text>
-            </View>
-            <View style={styles.titleContainer}>
+                <TouchableOpacity style={styles.textContainer}>
+                <Ionicons name="ios-information-circle-sharp" size={35} color={COLORS.raDark} onPress={openAlert} />
+                <Text style={styles.textGap}>Zobacz opis</Text>
+                </TouchableOpacity>
             </View>
             {isLoadingStream ? <ActivityIndicator size="large" color={COLORS.raGreen} /> : <TouchableOpacity
                 onPress={() => setRadioPlays(!radioPlays)}
@@ -77,6 +83,16 @@ export default function RecordingDetails({ route }) {
                 <Text>{playButtonTitle}</Text>
             </TouchableOpacity>
             }            
+            <View style={styles.textContainer}>
+            <Slider style = {styles.icon}
+                     minimumValue={0}
+                     maximumValue={100}
+                     height={50}
+                     width={250}
+                     thumbTintColor={COLORS.raDarker}>
+                </Slider>
+            <Text>   </Text>
+            </View>
         </View>
     )
 }
@@ -100,7 +116,7 @@ const styles = StyleSheet.create({
         elevation: 5,
         shadowOpacity: 0.4,
         shadowRadius: 10,
-        //marginVertical: 20 
+        marginVertical: 20 
     },
     squareButton: {
         width: 250,
@@ -136,7 +152,26 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     titleContainer: {
-        padding: 30
+        padding: 20,
+        //flexDirection: 'row',
+        marginHorizontal: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
+
+    textContainer: {
+        padding: 15,
+        flexDirection: 'row',
+        marginHorizontal: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        //marginLeft: 10,
+        //marginBottom: 20,
+        //marginRight: 15,
+    },
+    textGap: {
+        marginRight: 10,
+        marginLeft: 10,
+    }
 
 });
