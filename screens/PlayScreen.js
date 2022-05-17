@@ -7,11 +7,11 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 
 const startButton = () => {
-    return <MaterialIcons name="play-arrow" size={40} color={COLORS.lightWhite}/>;
-  };
-  const stopButton = () => {
-    return <MaterialIcons name="stop" size={40} color={COLORS.lightWhite}/>;
-  };
+    return <MaterialIcons name="play-arrow" size={40} color={COLORS.lightWhite} />;
+};
+const stopButton = () => {
+    return <MaterialIcons name="stop" size={40} color={COLORS.lightWhite} />;
+};
 
 export default function PlayScreen() {
     const [radioPlays, setRadioPlays] = useState(true);
@@ -23,14 +23,12 @@ export default function PlayScreen() {
     const streamURL = 'https://listen.radioaktywne.pl:8443/raogg';
     const metaDataURL = 'https://listen.radioaktywne.pl:8443/status-json.xsl';
     const [metaData, setMetaData] = useState({});
-   
+
     useEffect(() => {
         (async () => {
             console.log('status', radioPlays)
             // TODO create some generic component for fetching
-            fetch(metaDataURL)
-                .then((response) => response.json())
-                .then((json) => setMetaData(json.icestats.source[0]));
+
 
             if (!radioPlays) {
                 setIsLoadingStream(true);
@@ -57,13 +55,26 @@ export default function PlayScreen() {
         })()
     }, [radioPlays])
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            // console.log('Fetching meta data')
+            fetch(metaDataURL)
+                .then((response) => response.json())
+                .then((json) => setMetaData(json.icestats.source[0]))
+                .catch((error) => {
+                });
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <View style={globalStyles.centerContainerDark}>
             <View style={styles.imageContainer}>
-            <TouchableOpacity
-                style={styles.squareButton}>
-                <Image style={styles.image} source={require('../assets/img/ra-logo-with-name.png')} />
-            </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.squareButton}>
+                    <Image style={styles.image} source={require('../assets/img/ra-logo-with-name.png')} />
+                </TouchableOpacity>
             </View>
             <View>
                 <Text style={styles.paddingText}>  </Text>
@@ -78,7 +89,7 @@ export default function PlayScreen() {
             </TouchableOpacity>
             }
         </View>
-         
+
     )
 }
 
@@ -93,7 +104,7 @@ const styles = StyleSheet.create({
         height: 100,
         justifyContent: 'center',
         alignItems: 'center',
-      //  flexDirection: 'row', //dodane
+        //  flexDirection: 'row', //dodane
         borderRadius: 100,
         backgroundColor: COLORS.raGreen,
         borderColor: COLORS.raGreenDark,
@@ -106,21 +117,21 @@ const styles = StyleSheet.create({
     },
 
     squareButton: {
-            width: 250,
-            height: 250,
-            justifyContent: 'center',
-            alignItems: 'center',
-            //borderRadius: 100,
-            backgroundColor: '#3b3b4c',
-            borderColor: '#3b3b4c',
-            // shadowOffset: { width: 5, height: 5},
-            shadowColor: '#000', //#fff
-            elevation: 5,
-            shadowOpacity: 0.4,
-            shadowRadius: 10,
-            padding: 20
+        width: 250,
+        height: 250,
+        justifyContent: 'center',
+        alignItems: 'center',
+        //borderRadius: 100,
+        backgroundColor: '#3b3b4c',
+        borderColor: '#3b3b4c',
+        // shadowOffset: { width: 5, height: 5},
+        shadowColor: '#000', //#fff
+        elevation: 5,
+        shadowOpacity: 0.4,
+        shadowRadius: 10,
+        padding: 20
     },
-    
+
     imageContainer: {
         width: 250,
         height: 250,
@@ -132,7 +143,7 @@ const styles = StyleSheet.create({
         height: '100%',
         resizeMode: 'contain'
     },
-    
+
     titleText: {
         fontSize: 20,
         fontWeight: 'bold',
@@ -140,7 +151,7 @@ const styles = StyleSheet.create({
         color: '#fff',//'#2c2c3a', 
         justifyContent: 'center',
         alignItems: 'stretch',
-        padding: 15 
+        padding: 15
     },
 
     regularText: {

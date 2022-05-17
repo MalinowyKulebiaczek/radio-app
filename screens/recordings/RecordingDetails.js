@@ -21,7 +21,6 @@ export default function RecordingDetails({ route }) {
     const [radioPlays, setRadioPlays] = useState(true);
     const [playButtonTitle, setPlayButtonTitle] = useState(startButton);
     const [sound, setSound] = React.useState();
-
     const [isLoadingStream, setIsLoadingStream] = useState(false);
     const openAlert = () => {
         Alert.alert('Opis', recording.info, [{ text: 'OK' }]);
@@ -43,25 +42,19 @@ export default function RecordingDetails({ route }) {
                 setIsLoadingStream(false);
                 setPlayButtonTitle(stopButton);
 
-                sound.getStatusAsync()
-                    .then(function (result) {
-                        console.log(result.durationMillis)
-                        console.log(result.positionMillis)
-                    })
-                    .catch(failureCallback);
-
                 try {
                     await sound.playAsync()
                 } catch (e) {
-                    console.log(e)
+                    // console.log(e)
                 }
             } else {
                 try {
-                    await sound.stopAsync()
-                    await sound.unloadAsync()
-                    setPlayButtonTitle(startButton);
+                    
+                        await sound.stopAsync()
+                        await sound.unloadAsync()
+                        setPlayButtonTitle(startButton);               
                 } catch (e) {
-                    console.log(e)
+                    // console.log(e)
                 }
 
             }
@@ -90,11 +83,13 @@ export default function RecordingDetails({ route }) {
             }
             <View style={styles.textContainer}>
                 <Slider style={styles.icon}
+                    value={0}
                     minimumValue={0}
                     maximumValue={100}
                     height={50}
                     width={250}
-                    thumbTintColor={COLORS.raDarker}>
+                    thumbTintColor={COLORS.raDarker}
+                    >
                 </Slider>
                 <Text>   </Text>
             </View>
