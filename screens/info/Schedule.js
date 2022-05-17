@@ -46,35 +46,35 @@ export default function Schedule({navigation}) {
                 <View >
                     <Text style={globalStyles.titleText}> Poniedziałek</Text>
                     {isLoading ? <ActivityIndicator size="large" color={COLORS.raGreen} /> : (
-                        mondaySchedule.map((item) => (<TouchableOpacity onPress={() => navigation.navigate('RadioAuditionDetails', item)}><Card><Text>{item.hourStart + ' - ' + item.hourEnd + ' ' + item.title}</Text></Card></TouchableOpacity>))
+                        mondaySchedule.map((item) => (<TouchableOpacity  key={item.title} onPress={() => navigation.navigate('RadioAuditionDetails', item)}><Card><Text>{item.hourStart + ' - ' + item.hourEnd + '   ' + item.title}</Text></Card></TouchableOpacity>))
                         )
                     }
                 </View>
                 <View>
                     <Text style={globalStyles.titleText}> Wtorek</Text>
                     {isLoading ? <ActivityIndicator size="large" color={COLORS.raGreen} /> : (
-                        tuesdaySchedule.map((item) => (<TouchableOpacity onPress={() => navigation.navigate('RadioAuditionDetails', item)}><Card><Text>{item.hourStart + ' - ' + item.hourEnd + ' ' + item.title}</Text></Card></TouchableOpacity>))
+                        tuesdaySchedule.map((item) => (<TouchableOpacity  key={item.title} onPress={() => navigation.navigate('RadioAuditionDetails', item)}><Card><Text>{item.hourStart + ' - ' + item.hourEnd + '   ' + item.title}</Text></Card></TouchableOpacity>))
                         )
                     }
                 </View>
                 <View>
                     <Text style={globalStyles.titleText}> Środa</Text>
                     {isLoading ? <ActivityIndicator size="large" color={COLORS.raGreen} /> : (
-                        wednesdaySchedule.map((item) => (<TouchableOpacity onPress={() => navigation.navigate('RadioAuditionDetails', item)}><Card><Text>{item.hourStart + ' - ' + item.hourEnd + ' ' + item.title}</Text></Card></TouchableOpacity>))
+                        wednesdaySchedule.map((item) => (<TouchableOpacity  key={item.title} onPress={() => navigation.navigate('RadioAuditionDetails', item)}><Card><Text>{item.hourStart + ' - ' + item.hourEnd + '   ' + item.title}</Text></Card></TouchableOpacity>))
                         )
                     }
                 </View>
                 <View>
                     <Text style={globalStyles.titleText}> Czwartek</Text>
                     {isLoading ? <ActivityIndicator size="large" color={COLORS.raGreen} /> : (
-                        thursdaySchedule.map((item) => (<TouchableOpacity onPress={() => navigation.navigate('RadioAuditionDetails', item)}><Card><Text>{item.hourStart + ' - ' + item.hourEnd + ' ' + item.title}</Text></Card></TouchableOpacity>))
+                        thursdaySchedule.map((item) => (<TouchableOpacity  key={item.title} onPress={() => navigation.navigate('RadioAuditionDetails', item)}><Card><Text>{item.hourStart + ' - ' + item.hourEnd + '   ' + item.title}</Text></Card></TouchableOpacity>))
                         )
                     }
                 </View>
                 <View>
                     <View><Text style={globalStyles.titleText}> Piątek</Text></View>
                     {isLoading ? <ActivityIndicator size="large" color={COLORS.raGreen} /> : (
-                        fridaySchedule.map((item) => (<TouchableOpacity onPress={() => navigation.navigate('RadioAuditionDetails', item)}><Card><Text>{item.hourStart + ' - ' + item.hourEnd + ' ' + item.title}</Text></Card></TouchableOpacity>))
+                        fridaySchedule.map((item) => (<TouchableOpacity key={item.title} onPress={() => navigation.navigate('RadioAuditionDetails', item)}><Card><Text>{item.hourStart + ' - ' + item.hourEnd + '   ' + item.title}</Text></Card></TouchableOpacity>))
                         )
                     }
                 </View>

@@ -1,2 +1,2 @@
-const localBaseUrl = 'https://c9c2-2a02-a311-4344-4400-fc73-84b7-ef74-35c8.eu.ngrok.io';
+const localBaseUrl = 'https://9af3-2a02-a311-4344-4400-e134-8a82-e2fa-a29f.eu.ngrok.io';
 export const baseUrl = localBaseUrl

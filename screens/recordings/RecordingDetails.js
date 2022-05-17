@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image, ActivityIndicator, Alert} from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image, ActivityIndicator, Alert } from 'react-native';
 import { globalStyles } from '../../styles/global';
 import { Audio } from 'expo-av';
 import { COLORS } from '../../styles/colors';
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
-import {Slider} from '@miblanchard/react-native-slider';
+import { Slider } from '@miblanchard/react-native-slider';
 
 const startButton = () => {
-    return <MaterialIcons name="play-arrow" size={40} color={COLORS.lightWhite}/>;
-  };
-  const stopButton = () => {
-    return <MaterialIcons name="stop" size={40} color={COLORS.lightWhite}/>;
-  };
-  
+    return <MaterialIcons name="play-arrow" size={40} color={COLORS.lightWhite} />;
+};
+const stopButton = () => {
+    return <MaterialIcons name="stop" size={40} color={COLORS.lightWhite} />;
+};
 
-export default function RecordingDetails({route }) {
+
+export default function RecordingDetails({ route }) {
     const recording = route.params;
     const [radioPlays, setRadioPlays] = useState(true);
     const [playButtonTitle, setPlayButtonTitle] = useState(startButton);
@@ -24,8 +24,8 @@ export default function RecordingDetails({route }) {
 
     const [isLoadingStream, setIsLoadingStream] = useState(false);
     const openAlert = () => {
-        Alert.alert('Opis', recording.info , [{text: 'OK'}]);
-      }
+        Alert.alert('Opis', recording.info, [{ text: 'OK' }]);
+    }
 
     useEffect(() => {
         (async () => {
@@ -56,9 +56,14 @@ export default function RecordingDetails({route }) {
                     console.log(e)
                 }
             } else {
-                await sound.stopAsync()
-                await sound.unloadAsync()
-                setPlayButtonTitle(startButton);
+                try {
+                    await sound.stopAsync()
+                    await sound.unloadAsync()
+                    setPlayButtonTitle(startButton);
+                } catch (e) {
+                    console.log(e)
+                }
+
             }
         })()
     }, [radioPlays])
@@ -66,15 +71,15 @@ export default function RecordingDetails({route }) {
     return (
         <View style={globalStyles.centerContainerLight}>
             <View style={styles.imageContainer}>
-            <TouchableOpacity style={styles.icon}>
+                <TouchableOpacity style={styles.icon}>
                     <MaterialCommunityIcons name="microphone-variant" size={110} color={COLORS.raDark} />
-            </TouchableOpacity>
+                </TouchableOpacity>
             </View>
             <View style={styles.titleContainer}>
                 <Text style={globalStyles.titleText}>{recording.title}</Text>
                 <TouchableOpacity style={styles.textContainer}>
-                <Ionicons name="ios-information-circle-sharp" size={35} color={COLORS.raDark} onPress={openAlert} />
-                <Text style={styles.textGap}>Zobacz opis</Text>
+                    <Ionicons name="ios-information-circle-sharp" size={35} color={COLORS.raDark} onPress={openAlert} />
+                    <Text style={styles.textGap}>Zobacz opis</Text>
                 </TouchableOpacity>
             </View>
             {isLoadingStream ? <ActivityIndicator size="large" color={COLORS.raGreen} /> : <TouchableOpacity
@@ -82,16 +87,16 @@ export default function RecordingDetails({route }) {
                 style={styles.roundButton}>
                 <Text>{playButtonTitle}</Text>
             </TouchableOpacity>
-            }            
+            }
             <View style={styles.textContainer}>
-            <Slider style = {styles.icon}
-                     minimumValue={0}
-                     maximumValue={100}
-                     height={50}
-                     width={250}
-                     thumbTintColor={COLORS.raDarker}>
+                <Slider style={styles.icon}
+                    minimumValue={0}
+                    maximumValue={100}
+                    height={50}
+                    width={250}
+                    thumbTintColor={COLORS.raDarker}>
                 </Slider>
-            <Text>   </Text>
+                <Text>   </Text>
             </View>
         </View>
     )
@@ -106,7 +111,7 @@ const styles = StyleSheet.create({
     roundButton: {
         width: 100,
         height: 100,
-        justifyContent:'center',
+        justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 100,
         backgroundColor: COLORS.raGreen,
@@ -116,7 +121,7 @@ const styles = StyleSheet.create({
         elevation: 5,
         shadowOpacity: 0.4,
         shadowRadius: 10,
-        marginVertical: 20 
+        marginVertical: 20
     },
     squareButton: {
         width: 250,
@@ -126,7 +131,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#3b3b4c',
         borderColor: '#3b3b4c',
         // shadowOffset: { width: 5, height: 5},
-        shadowColor: '#000', 
+        shadowColor: '#000',
         elevation: 5,
         shadowOpacity: 0.4,
         shadowRadius: 10,

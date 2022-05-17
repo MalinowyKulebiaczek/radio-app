@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { View, FlatList, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../../styles/global';
-import Card from '../../shared/card';
 import CardTutorial from '../../shared/cardTurorial';
-
 
 export default function InfoOverview({ navigation }) {
     const [subPages, setSubPages] = useState([
@@ -31,11 +29,3 @@ export default function InfoOverview({ navigation }) {
         </View>
     )
 }
-
-// {/* <CardWithImg
-//                             style ={globalStyles.container} 
-//                             title={item.title}
-//                             image={item.urlImg}
-//                             timeline={"23.04.2022 - 30.04.2022"}
-//                             author={item.author}>
-//                         </CardWithImg> */}

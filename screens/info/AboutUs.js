@@ -24,15 +24,15 @@ export default function AboutUs() {
 
              <Text style={globalStyles.paddingText}></Text>
              <Text style={globalStyles.titleText}>Kontakt</Text>
-             <Text style={globalStyles.Text}> - Redakcja: redakcja@radioaktywne.pl</Text>
-             <Text style={globalStyles.Text}> - Marketing: marketing@radioaktywne.pl</Text>
-             <Text style={globalStyles.Text}> - Rekrutacja: rekrutacja@radioaktywne.pl</Text>
+             <Text style={globalStyles.Text}>Redakcja: redakcja@radioaktywne.pl</Text>
+             <Text style={globalStyles.Text}>Marketing: marketing@radioaktywne.pl</Text>
+             <Text style={globalStyles.Text}>Rekrutacja: rekrutacja@radioaktywne.pl</Text>
              
              <Text style={globalStyles.paddingText}></Text>
              <Text style={globalStyles.titleText}>Adres</Text>
-             <Text style={globalStyles.Text}> Radio Aktywne ul. Waryńskiego 12, </Text>
-             <Text style={globalStyles.Text}> pok. A109, A110</Text>
-             <Text style={globalStyles.Text}> 00-631 Warszawa</Text>            
+             <Text style={globalStyles.Text}>Radio Aktywne ul. Waryńskiego 12, </Text>
+             <Text style={globalStyles.Text}>pok. A109, A110</Text>
+             <Text style={globalStyles.Text}>00-631 Warszawa</Text>            
         </View>
     )
 }
