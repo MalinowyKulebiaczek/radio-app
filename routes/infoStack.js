@@ -94,7 +94,6 @@ export default function Navigator({ navigation }) {
                     component={Schedule}
                     options={{ 
                         title: 'Ramówka',
-                        title: 'Audycje',
                         // headerLeft: () => (
                         //     <HeaderBackButton onPress={()=>{navigation.navigate('infoOverview')}} labelVisible={false} tintColor={'#fff'}/>
                         //     ),
