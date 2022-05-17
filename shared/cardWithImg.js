@@ -64,8 +64,8 @@ const styles = StyleSheet.create({
 
     cardImage: {
         flex: 0.3,
-        height: 85,
-        width: 30,
+        // height: height / 8,
+        // width: 30,
   
     },
 

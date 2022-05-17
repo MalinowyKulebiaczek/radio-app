@@ -14,7 +14,7 @@ export default function CardTutorial({image, title, about}) {
                     source={{uri:image}}
                 />
             </View>
-            <View style={{ flex: 0.6, marginHorizontal: 12, marginVertical: 8, overflow: "hidden" }}>
+            <View style={{ flex: 0.6, marginHorizontal: 12, marginVertical: 25}}>
                 <Text style={styles.cardTitle}>{title}</Text>
                 <Text style={styles.cardDescription}>{about}</Text>
                 {/* <Text style={styles.cardDescription}>{author}</Text>
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         width: width-40,
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
-        opacity: 0.9,
+        opacity: 0.98,
     },
 
     cardContent: {
