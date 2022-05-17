@@ -43,6 +43,13 @@ export default function RecordingDetails({route }) {
                 setIsLoadingStream(false);
                 setPlayButtonTitle(stopButton);
 
+                sound.getStatusAsync()
+                    .then(function (result) {
+                        console.log(result.durationMillis)
+                        console.log(result.positionMillis)
+                    })
+                    .catch(failureCallback);
+
                 try {
                     await sound.playAsync()
                 } catch (e) {
